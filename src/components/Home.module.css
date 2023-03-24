@@ -1,6 +1,75 @@
-.Card{
-    display: flex;
-    flex-direction: column;
-    flex-wrap:wrap;
-    padding-top: 10%;
+.Card
+{
+    border-color: deepskyblue;
+    background-color: lightblue;
+    border-style: initial;
+    margin-left: 12%;
+    margin-right: 12%;
+    margin: 10%;
+    padding: 4%;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: large;
+    box-shadow: 5px 5px lightgrey;
+}
+
+.parentdiv{
+    margin-top:  4%;
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-bottom: 5%;
+    box-shadow: 150px 150px 150px 150px lightblue ;
+    Display: flex;
+    justify-content: center;
+    background-color: #F8F8FF;
+    border-radius: 20px;
+}
+.streaker
+{
+    margin-top: 2%;
+    padding: 1px;
+    border-radius: 5px;
+    font-style: italic;
+    color:royalblue;
+} 
+
+@media only screen and (max-width: 500px) 
+{
+
+
+.Card
+{
+    border-color: deepskyblue;
+    background-color: lightblue;
+    border-style: initial;
+    margin-left: 6%;
+    margin-right: 6%;
+    margin: 4%;
+    padding: 2%;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: large;
+    box-shadow: 5px 5px lightgrey;
+}
+
+.parentdiv{
+    margin-top:  15%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    box-shadow: 150px 150px 150px 150px lightblue ;
+    Display: flex;
+    justify-content: center;
+    background-color: #F8F8FF;
+    border-radius: 10px;
+}
+.streaker
+{
+    margin-top: 1%;
+    padding: 1px;
+    border-radius: 2px;
+    font-style: italic;
+    color:royalblue;
+} 
+
 }

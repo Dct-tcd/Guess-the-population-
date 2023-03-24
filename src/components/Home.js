@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import numberToWords from "number-to-words";
+import styles from ".//Home.module.css";
 const Home = () => {
   const [data, setdata] = useState([
     {
@@ -878,6 +879,7 @@ const Home = () => {
     { name: "French Guiana", dial_code: "+594", code: "GF" },
     { name: "French Polynesia", dial_code: "+689", code: "PF" },
     { name: "Gabon", dial_code: "+241", code: "GA" },
+    { name: "Vietnam", dial_code: "+84", code: "VN" },
     { name: "Gambia", dial_code: "+220", code: "GM" },
     { name: "Georgia", dial_code: "+995", code: "GE" },
     { name: "Germany", dial_code: "+49", code: "DE" },
@@ -1088,29 +1090,22 @@ const Home = () => {
   const getFlag = (country) => {
     let coder;
     for (let i = 0; i < codes.length; i++) {
-      // console.log(codes.name);
       if (codes[i].name == country) coder = codes[i].code;
     }
-    // console.log(coder)
+  
     return `https://flagsapi.com/${coder}/shiny/64.png`;
   };
 
-  //    }, [popu1,popu2,index1,index2])
-
   const validator1 = () => {
-    // console.log(index1, index2, data[index1].country, data[index2].country);
-    // style={{onhave}}
+  
     let randind1 = parseInt(Math.random() * (196 - 0) + 0);
     let randind2 = parseInt(Math.random() * (196 - 0) + 0);
 
-    //   console.log(index1);
 
     let val1 = parseInt(data[index1].population),
       val2 = parseInt(data[index2].population);
 
-    // console.log(data[index1].population , data[index2].population)
-
-    if (val1 < val2) {
+      if (val1 < val2) {
       setstreaker(streaker + 1);
       while (randind1 == index1 || randind1 == index2) {
         randind1 = parseInt(Math.random() * (196 - 0) + 0);
@@ -1146,7 +1141,7 @@ const Home = () => {
       }, 3000);
     }
   };
-  //   getFlag();
+ 
   function Changer(num) {
     var str = num.toString().split(".");
     if (str[0].length >= 5) {
@@ -1165,8 +1160,7 @@ const Home = () => {
     let val1 = parseInt(data[index1].population),
       val2 = parseInt(data[index2].population);
 
-    // console.log(data[index1].population, data[index2].population);
-
+   
     if (val1 > val2) {
       setstreaker(streaker + 1);
 
@@ -1192,13 +1186,14 @@ const Home = () => {
       }
 
       setTimeout(() => {
+        
         setindex1(randind1);
         setcont1(data[index1].country);
-
         setindex2(randind2);
         setcont2(data[index2].country);
         setpopu1(0);
         setpopu2(0);
+
       }, 3000);
     }
   };
@@ -1220,7 +1215,6 @@ const Home = () => {
 
     setindex1(randind1);
     setcont1(data[index1].country);
-
     setindex2(randind2);
     setcont2(data[index2].country);
     setpopu1(0);
@@ -1231,40 +1225,10 @@ const Home = () => {
   return (
     <>
       <h1 style={{ marginTop: "4%" }}>
-        {" "}
         Which country has Smaller population ?
       </h1>
-      <div
-        style={{
-          marginTop: "4%",
-          marginLeft: "8%",
-          marginRight: "8%",
-          marginBottom: "5%",
-          boxShadow: "150px 150px 150px 150px lightblue",
-          display: "flex",
-          justifyContent: "center",
-          backgroundColor: "#F8F8FF",
-          borderRadius: "20px",
-        }}
-      >
-        <div
-          className="Card"
-          style={{
-            borderColor: "deepskyblue",
-            backgroundColor: "lightblue",
-            borderStyle: "initial",
-            marginLeft: "12%",
-            marginRight: "12%",
-
-            margin: "10%",
-            padding: "4%",
-            borderRadius: "20px",
-            cursor: "pointer",
-            fontSize: "large",
-            boxShadow: "5px 5px lightgrey",
-          }}
-          onClick={validator1}
-        >
+      <div className={styles.parentdiv}>
+        <div className={styles.Card} onClick={validator1}>
           <img
             src={getFlag(data[index1].country)}
             style={{ marginRight: "10px" }}
@@ -1275,43 +1239,15 @@ const Home = () => {
             {Changer(popu1)}
           </div>
         </div>
-        <h3
-          style={{
-            marginTop: "2%",
-            padding: "1px",
-            borderRadius: "5px",
-            fontStyle: "italic",
-            //    display:"flex",
-            // border:"inset"
-            color:"royalblue"
-          }}
-        >
+        <h3 className={styles.streaker} style={{}}>
           Streak : {streaker}
         </h3>
-        <div
-          style={{
-            borderColor: "magenta",
-            backgroundColor: "lightblue",
-            borderStyle: "initial",
-            margin: "10%",
-            marginLeft: "12%",
-            marginRight: "12%",
-
-            padding: "4%",
-            borderRadius: "20px",
-            cursor: "pointer",
-            fontSize: "large",
-            boxShadow: "5px 5px lightgrey",
-          }}
-          onClick={validator2}
-        >
+        <div className={styles.Card} onClick={validator2}>
           <img
             src={getFlag(data[index2].country)}
-            style={{ marginRight: "10px" }}
-          ></img>
-
+            style={{ marginRight: "10px" }}>
+          </img>
           {data[index2].country}
-
           <div style={{ visibility: popu2 == 0 ? "hidden" : "visible" }}>
             {Changer(popu2)}
           </div>
